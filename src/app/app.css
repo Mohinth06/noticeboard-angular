@@ -1,0 +1,239 @@
+/* ============================================
+   Angular App Styles
+   ============================================ */
+.main {
+  padding: 20px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f0fdf4;
+  min-height: 100vh;
+}
+
+.content {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.main-title {
+  color: #166534;
+  font-size: 1.8rem;
+  margin-bottom: 0.25rem;
+}
+
+.subtitle {
+  color: #4b7a5e;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.section-title {
+  color: #166534;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #bbf7d0;
+  padding-bottom: 0.4rem;
+}
+
+/* Notice Cards */
+.notice-card {
+  border-left: 5px solid #22c55e;
+  padding: 15px 20px;
+  margin-bottom: 14px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.notice-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.notice-title {
+  margin: 0;
+  color: #1e293b;
+  font-size: 1.05rem;
+}
+
+.notice-badge {
+  background: #bbf7d0;
+  color: #166534;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: bold;
+}
+
+.notice-content {
+  color: #475569;
+  margin: 6px 0;
+  font-size: 0.93rem;
+}
+
+.notice-meta {
+  color: #64748b;
+  font-size: 0.82rem;
+}
+
+.loading-msg {
+  color: #f59e0b;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+.empty-state {
+  color: #94a3b8;
+  font-style: italic;
+  margin: 1rem 0;
+}
+
+/* EJS Demo Section */
+.ejs-toggle-btn {
+  background: #ec4899;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.92rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.ejs-toggle-btn:hover {
+  background: #be185d;
+  transform: translateY(-1px);
+}
+
+.ejs-card {
+  background: #fff0f6;
+  border: 2px solid #f9a8d4;
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 6px 20px rgba(236, 72, 153, 0.1);
+  animation: slideDown 0.25s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.ejs-badge {
+  display: inline-block;
+  background: #fce7f3;
+  color: #9d174d;
+  border: 1px solid #fbcfe8;
+  border-radius: 999px;
+  padding: 4px 14px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.ejs-title {
+  color: #be185d;
+  margin: 0 0 0.5rem 0;
+  font-size: 1.3rem;
+}
+
+.ejs-desc {
+  color: #6b7280;
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+  font-size: 0.93rem;
+}
+
+.ejs-time-box {
+  background: white;
+  border: 1px solid #f9a8d4;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  color: #9d174d;
+  font-size: 0.93rem;
+  margin: 1rem 0;
+}
+
+.ejs-links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.ejs-links a {
+  background: #ec4899;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.83rem;
+  transition: background 0.2s;
+}
+
+.ejs-links a:hover {
+  background: #be185d;
+}
+
+/* ============================================
+   Angular Pipes Demo Card
+   ============================================ */
+.pipes-demo-card {
+  background: #f0fdf4;
+  border: 2px solid #86efac;
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+  box-shadow: 0 4px 14px rgba(34, 197, 94, 0.1);
+}
+
+.pipes-badge {
+  display: inline-block;
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #86efac;
+  border-radius: 999px;
+  padding: 4px 14px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.pipes-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.pipes-table th {
+  background: #dcfce7;
+  color: #166534;
+  padding: 8px 12px;
+  text-align: left;
+  border-bottom: 2px solid #86efac;
+}
+
+.pipes-table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #d1fae5;
+  color: #374151;
+}
+
+.pipes-table td code {
+  background: #f0fdf4;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-size: 0.82rem;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+.pipe-result {
+  color: #166534;
+  font-weight: bold;
+}
+

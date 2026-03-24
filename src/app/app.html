@@ -1,0 +1,116 @@
+<main class="main">
+  <div class="content">
+    <h1 class="main-title">{{ title }}</h1>
+    <p class="subtitle">A standalone Angular app fetching data from the Node.js + Express backend.</p>
+
+    <!-- ============================================ -->
+    <!-- EJS Demo Section -->
+    <!-- ============================================ -->
+    <button class="ejs-toggle-btn" (click)="toggleEjsDemo()">
+      {{ showEjsDemo() ? '▲ Hide EJS Demo' : '▼ Show EJS Demo (from Express + EJS)' }}
+    </button>
+
+    @if (showEjsDemo()) {
+      <div class="ejs-card">
+        <div class="ejs-badge">⚙️ EJS Template Data — Rendered via Angular</div>
+
+        @if (ejsLoading()) {
+          <p style="color: #9d174d;">Loading EJS data from Express...</p>
+        }
+
+        @if (!ejsLoading() && ejsData()) {
+          <h2 class="ejs-title">{{ ejsData().title }} — EJS Template</h2>
+          <p class="ejs-desc">This page is dynamically rendered by Express and EJS.</p>
+          <p class="ejs-desc">{{ ejsData().description }}</p>
+          <div class="ejs-time-box">
+            🕐 Server Time: <strong>{{ ejsData().serverTime }}</strong>
+          </div>
+          <div class="ejs-links">
+            <a href="http://localhost:3000/dynamic" target="_blank">View Raw EJS Page ↗</a>
+            <a href="http://localhost:3000"         target="_blank">Vanilla JS Board ↗</a>
+            <a href="http://localhost:5173"         target="_blank">React App ↗</a>
+          </div>
+        }
+      </div>
+    }
+
+    <!-- ============================================ -->
+    <!-- Angular Pipes Demo -->
+    <!-- WHY: Pipes cleanly transform data for display  -->
+    <!--      without changing the actual data value.  -->
+    <!-- HOW: {{ value | pipeName }} or               -->
+    <!--      {{ value | date:'format' }}              -->
+    <!-- ============================================ -->
+    <div class="pipes-demo-card">
+      <div class="pipes-badge">🔧 Angular Pipes Demo</div>
+      <table class="pipes-table">
+        <thead>
+          <tr>
+            <th>Pipe</th>
+            <th>Raw Value</th>
+            <th>After Pipe</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>| uppercase</code></td>
+            <td>department notice board</td>
+            <td class="pipe-result">{{ 'department notice board' | uppercase }}</td>
+          </tr>
+          <tr>
+            <td><code>| titlecase</code></td>
+            <td>admin user</td>
+            <td class="pipe-result">{{ 'admin user' | titlecase }}</td>
+          </tr>
+          <tr>
+            <td><code>| date</code></td>
+            <td>{{ today }}</td>
+            <td class="pipe-result">{{ today | date }}</td>
+          </tr>
+          <tr>
+            <td><code>| date:'fullDate'</code></td>
+            <td>{{ today }}</td>
+            <td class="pipe-result">{{ today | date:'fullDate' }}</td>
+          </tr>
+          <tr>
+            <td><code>| date:'shortTime'</code></td>
+            <td>{{ today }}</td>
+            <td class="pipe-result">{{ today | date:'shortTime' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- Notices Section — Pipes used in real notices -->
+    <!-- ============================================ -->
+    <h2 class="section-title">📋 Notice Board</h2>
+
+    @if (loading()) {
+      <div class="loading-msg">Loading notices via Angular HttpClient...</div>
+    }
+
+    <!-- @for replaces *ngFor in modern Angular 17+ -->
+    @for (notice of notices(); track notice.id) {
+      <div class="notice-card">
+        <div class="notice-header">
+          <!-- | titlecase pipe on title -->
+          <h3 class="notice-title">{{ notice.title | titlecase }}</h3>
+          <!-- | uppercase pipe on type badge -->
+          <span class="notice-badge">{{ notice.type | uppercase }}</span>
+        </div>
+        <p class="notice-content">{{ notice.content }}</p>
+        <small class="notice-meta">
+          <!-- | titlecase on author name -->
+          <b>{{ notice.author | titlecase }}</b>
+          <!-- | date pipe formats the raw date string -->
+          | {{ notice.date | date:'mediumDate' }}
+        </small>
+      </div>
+    }
+
+    @if (notices().length === 0 && !loading()) {
+      <div class="empty-state">No notices available.</div>
+    }
+  </div>
+</main>
