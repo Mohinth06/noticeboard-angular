@@ -1,4 +1,8 @@
 import { Component, OnInit, signal } from '@angular/core';
+
+// API base URL — overridden by window.__API_BASE__ in production index.html
+// or set to localhost:3000 for local dev
+const API_BASE = (window as any).__API_BASE__ || 'http://localhost:3000';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule, UpperCasePipe, DatePipe, TitleCasePipe } from '@angular/common';
 
@@ -30,7 +34,7 @@ export class App implements OnInit {
 
   ngOnInit() {
     // Fetch notices from Node Server
-    this.http.get<any[]>('http://localhost:3000/api/notices').subscribe({
+    this.http.get<any[]>(`${API_BASE}/api/notices`).subscribe({
       next: (data) => {
         this.notices.set(data);
         this.loading.set(false);
@@ -42,7 +46,7 @@ export class App implements OnInit {
     });
 
     // Fetch EJS dynamic data from Express JSON API
-    this.http.get<any>('http://localhost:3000/api/dynamic').subscribe({
+    this.http.get<any>(`${API_BASE}/api/dynamic`).subscribe({
       next: (data) => {
         this.ejsData.set(data);
         this.ejsLoading.set(false);

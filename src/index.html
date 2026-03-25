@@ -2,10 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>AngularApp</title>
+  <title>Smart Notice Board — Angular</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!-- Inject backend API URL at runtime; override in Vercel with env var ANGULAR_API_BASE -->
+  <script>
+    // In production, set window.__API_BASE__ to your Render backend URL.
+    // This placeholder is replaced by the ANGULAR_API_BASE env var in Vercel's index.html postprocess,
+    // or you can hard-code it here temporarily:
+    // window.__API_BASE__ = 'https://noticeboard-backend.onrender.com';
+    window.__API_BASE__ = window.__API_BASE__ || 'http://localhost:3000';
+  </script>
 </head>
 <body>
   <app-root></app-root>
