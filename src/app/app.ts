@@ -61,4 +61,13 @@ export class App implements OnInit {
   toggleEjsDemo() {
     this.showEjsDemo.set(!this.showEjsDemo());
   }
+
+  deleteNotice(id: number) {
+    this.http.delete(`${API_BASE}/api/notices/${id}`).subscribe({
+      next: () => {
+        this.notices.update(notices => notices.filter(n => n.id !== id));
+      },
+      error: (err) => console.error("Error deleting notice", err)
+    });
+  }
 }

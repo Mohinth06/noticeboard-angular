@@ -92,7 +92,9 @@
 
     <!-- @for replaces *ngFor in modern Angular 17+ -->
     @for (notice of notices(); track notice.id) {
-      <div class="notice-card">
+      <div class="notice-card" style="position: relative;">
+        <!-- Delete Button -->
+        <button (click)="deleteNotice(notice.id)" style="position: absolute; right: 10px; top: 10px; background: #ef4444; color: white; border: none; border-radius: 50%; width: 25px; height: 25px; cursor: pointer; padding: 0;">✖</button>
         <div class="notice-header">
           <!-- | titlecase pipe on title -->
           <h3 class="notice-title">{{ notice.title | titlecase }}</h3>
