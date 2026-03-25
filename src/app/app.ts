@@ -20,6 +20,7 @@ import { CommonModule, UpperCasePipe, DatePipe, TitleCasePipe } from '@angular/c
   styleUrl: './app.css'
 })
 export class App implements OnInit {
+  apiBase = API_BASE;
   title = 'Separate Angular Notice Board';
   notices = signal<any[]>([]);
   loading = signal(true);

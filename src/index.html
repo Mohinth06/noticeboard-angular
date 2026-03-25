@@ -6,10 +6,11 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <!-- Inject backend API URL at runtime; override in Vercel with env var ANGULAR_API_BASE -->
+  <!-- Smart Backend Selector: Detects if running locally or on cloud -->
   <script>
-    // In production, set window.__API_BASE__ to your Render backend URL.
-    window.__API_BASE__ = 'https://noticeboard-backend-fwec.onrender.com';
+    window.__API_BASE__ = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+      ? 'http://localhost:3000'
+      : 'https://noticeboard-backend-fwec.onrender.com';
   </script>
 </head>
 <body>

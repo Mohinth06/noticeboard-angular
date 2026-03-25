@@ -26,8 +26,8 @@
             🕐 Server Time: <strong>{{ ejsData().serverTime }}</strong>
           </div>
           <div class="ejs-links">
-            <a href="http://localhost:3000/dynamic" target="_blank">View Raw EJS Page ↗</a>
-            <a href="http://localhost:3000"         target="_blank">Vanilla JS Board ↗</a>
+            <a [href]="apiBase + '/dynamic'" target="_blank">View Raw EJS Page ↗</a>
+            <a [href]="apiBase"               target="_blank">Vanilla JS Board ↗</a>
             <a href="http://localhost:5173"         target="_blank">React App ↗</a>
           </div>
         }
